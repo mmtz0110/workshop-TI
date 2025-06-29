@@ -1,9 +1,13 @@
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
   workflow_dispatch: {}
+  pull_request:
+    branches:
+    - main
+    - master
+  push:
+    branches:
+    - main
+    - master
 name: Deployment
 jobs:
   semgrep:
@@ -31,7 +35,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '22'
+        node-version: '20'
 
     - name: Install dependencies & build
       run: |
